@@ -3,7 +3,6 @@ import 'package:grocery_app/helpers/column_with_separator.dart';
 import 'package:grocery_app/models/grocery_item.dart';
 import 'package:grocery_app/screens/cart/checkout_bottom_sheet.dart';
 import 'package:grocery_app/widgets/app_button.dart';
-import 'package:get/get.dart';
 import 'package:grocery_app/helpers/size_config.dart';
 import 'package:grocery_app/widgets/chart_item_widget.dart';
 
@@ -21,9 +20,37 @@ class CartScreen extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              Text(
-                "My Cart",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        width: 35,
+                        height: 35,
+                        padding: EdgeInsets.all(9),
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "My Cart",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox()
+                  ],
+                ),
               ),
               SizedBox(
                 height: 20,

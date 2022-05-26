@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery_app/helpers/column_with_separator.dart';
 import 'package:grocery_app/helpers/size_config.dart';
+import 'package:grocery_app/screens/auth/login_screen.dart';
 import 'package:grocery_app/styles/colors.dart';
 import 'package:grocery_app/widgets/app_text.dart';
 
@@ -48,7 +49,7 @@ class AccountScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              logoutButton(),
+              logoutButton(context),
               const SizedBox(
                 height: 20,
               )
@@ -59,13 +60,18 @@ class AccountScreen extends StatelessWidget {
     );
   }
 
-  Widget logoutButton() {
+  Widget logoutButton(context) {
     return Container(
         width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 12),
         margin: EdgeInsets.symmetric(
             horizontal: SizeConfig.safeBlockVertical * 2.7),
         child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (route) => false);
+            },
             style: ElevatedButton.styleFrom(
                 primary: Color(0xffF2F3F2),
                 padding: EdgeInsets.symmetric(
